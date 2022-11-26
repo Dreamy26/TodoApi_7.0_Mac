@@ -1,9 +1,16 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using Microsoft.EntityFrameworkCore;
+using TodoApi.Models;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+// Adds the DB context to the DI container
+builder.Services.AddDbContext<TodoContext>(opt =>
+    opt.UseInMemoryDatabase("TodoList"));// using in-memory database
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
