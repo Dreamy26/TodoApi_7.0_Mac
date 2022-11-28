@@ -10,7 +10,7 @@ builder.Services.AddControllers();
 
 // Adds the DB context to the DI container
 builder.Services.AddDbContext<TodoContext>(opt =>
-    opt.UseInMemoryDatabase("TodoList"));// using in-memory database
+    opt.UseInMemoryDatabase("TodoList"));// using in-memory
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
