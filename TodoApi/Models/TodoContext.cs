@@ -3,13 +3,19 @@ using Microsoft.EntityFrameworkCore;
 
 namespace TodoApi.Models
 {
-    public class TodoContext : DbContext
+    public class TodoContext
     {
-        public TodoContext(DbContextOptions<TodoContext> options) : base(options)
-        {
-        }
+        public long Id { get; set; }
+        public string? Name { get; set; }
+        public bool IsComplete { get; set; }
+        public string? Secret { get; set; } // representing DTO approach Data Transfer Object, adding secret field
+    }
 
-        public DbSet<TodoItem> TodoItems { get; set; } = null!;
+    public class TodoItemDTO
+    {
+        public long Id { get; set; }
+        public string? Name { get; set; }
+        public bool IsComplete { get; set; }
     }
 }
 
